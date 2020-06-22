@@ -3,6 +3,7 @@ package com.hadymic.sqlgenerator.service.impl;
 import com.hadymic.sqlgenerator.mapper.*;
 import com.hadymic.sqlgenerator.model.*;
 import com.hadymic.sqlgenerator.service.IAdFilterWordService;
+import com.hadymic.sqlgenerator.service.IAdImageService;
 import com.hadymic.sqlgenerator.service.IAdJson2SqlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,13 +19,23 @@ public class AdJson2SqlServiceImpl implements IAdJson2SqlService {
     @Autowired
     private AdAdslotMapper adAdslotMapper;
     @Autowired
+    private AdAppMapper adAppMapper;
+    @Autowired
     private AdClickAreaMapper adClickAreaMapper;
+    @Autowired
+    private AdDeepLinkMapper adDeepLinkMapper;
     @Autowired
     private AdDownloadConfMapper adDownloadConfMapper;
     @Autowired
     private AdExtMapper adExtMapper;
     @Autowired
     private IAdFilterWordService adFilterWordService;
+    @Autowired
+    private AdIconMapper adIconMapper;
+    @Autowired
+    private IAdImageService adImageService;
+    @Autowired
+    private AdMediaExtMapper adMediaExtMapper;
     @Autowired
     private AdEventMapper adEventMapper;
 
@@ -51,8 +62,18 @@ public class AdJson2SqlServiceImpl implements IAdJson2SqlService {
         return insert >= 1;
     }
 
+    private boolean saveApp(App app) {
+        int insert = adAppMapper.insert(app);
+        return insert >= 1;
+    }
+
     private boolean saveClickArea(Click_area click_area) {
         int insert = adClickAreaMapper.insert(click_area);
+        return insert >= 1;
+    }
+
+    private boolean saveDeepLink(Deep_link deep_link) {
+        int insert = adDeepLinkMapper.insert(deep_link);
         return insert >= 1;
     }
 
@@ -79,6 +100,24 @@ public class AdJson2SqlServiceImpl implements IAdJson2SqlService {
             flag &= adFilterWordService.saveOrUpdate(filter_word);
         }
         return flag;
+    }
+
+    private boolean saveIcon(Icon icon) {
+        int insert = adIconMapper.insert(icon);
+        return insert >= 1;
+    }
+
+    private boolean saveImages(List<Image> images) {
+        boolean flag = true;
+        for (Image image : images) {
+            flag &= adImageService.saveOrUpdate(image);
+        }
+        return flag;
+    }
+
+    private boolean saveMediaExt(Media_ext media_ext) {
+        int insert = adMediaExtMapper.insert(media_ext);
+        return insert >= 1;
     }
 
     private boolean saveEvent(Event event) {
