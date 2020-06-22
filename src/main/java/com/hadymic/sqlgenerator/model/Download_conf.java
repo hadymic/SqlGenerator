@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_download_conf")
 @TableName("ad_download_conf")
-public class Download_conf extends BaseModel {
+public class Download_conf {
 
     @IsKey
     @IsAutoIncrement

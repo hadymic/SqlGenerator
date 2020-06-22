@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_video")
 @TableName("ad_video")
-public class Video extends BaseModel {
+public class Video {
 
     @IsKey
     @IsAutoIncrement

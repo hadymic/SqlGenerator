@@ -30,7 +30,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "ad_filter_word")
 @TableName("ad_filter_word")
-public class Filter_word extends BaseModel {
+public class Filter_word {
 
     @IsKey
     @Column
@@ -43,7 +43,7 @@ public class Filter_word extends BaseModel {
     @TableField
     private Boolean is_selected;
 
-    private List<Option> options;
+    private List<Filter_word> options;
     @Column
     @TableField
     private String options_ids;

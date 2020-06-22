@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_adslot")
 @TableName("ad_adslot")
-public class Adslot extends BaseModel {
+public class Adslot {
 
     @IsKey
     @IsAutoIncrement

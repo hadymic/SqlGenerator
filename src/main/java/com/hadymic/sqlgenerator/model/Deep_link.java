@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_deep_link")
 @TableName("ad_deep_link")
-public class Deep_link extends BaseModel {
+public class Deep_link {
     @IsKey
     @IsAutoIncrement
     @Column

@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_dynamic_creative")
 @TableName("ad_dynamic_creative")
-public class Dynamic_creative extends BaseModel {
+public class Dynamic_creative {
 
     @IsKey
     @IsAutoIncrement

@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_tpl_info")
 @TableName("ad_tpl_info")
-public class Tpl_info extends BaseModel {
+public class Tpl_info {
 
     @IsKey
     @Column

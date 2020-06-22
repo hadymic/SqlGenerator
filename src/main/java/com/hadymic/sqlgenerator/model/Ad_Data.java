@@ -30,7 +30,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "ad_data")
 @TableName("ad_data")
-public class Ad_Data extends BaseModel {
+public class Ad_Data {
 
     @IsKey
     @IsAutoIncrement

@@ -30,7 +30,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "ad_diff_data")
 @TableName("ad_diff_data")
-public class Diff_data extends BaseModel {
+public class Diff_data {
 
     @IsKey
     @IsAutoIncrement

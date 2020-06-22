@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_app")
 @TableName("ad_app")
-public class App extends BaseModel {
+public class App {
 
     @IsKey
     @IsAutoIncrement

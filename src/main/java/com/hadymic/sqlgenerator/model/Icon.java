@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_icon")
 @TableName("ad_icon")
-public class Icon extends BaseModel {
+public class Icon {
 
     @IsKey
     @IsAutoIncrement

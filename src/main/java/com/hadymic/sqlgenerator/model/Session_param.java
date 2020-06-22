@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_session_param")
 @TableName("ad_session_param")
-public class Session_param extends BaseModel {
+public class Session_param {
     @IsKey
     @IsAutoIncrement
     @Column

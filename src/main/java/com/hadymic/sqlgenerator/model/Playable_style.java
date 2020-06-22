@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_playable_style")
 @TableName("ad_playable_style")
-public class Playable_style extends BaseModel {
+public class Playable_style {
     @IsKey
     @IsAutoIncrement
     @Column

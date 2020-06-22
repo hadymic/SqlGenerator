@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_animation")
 @TableName("ad_animation")
-public class Animation extends BaseModel {
+public class Animation {
     @IsKey
     @IsAutoIncrement
     @Column

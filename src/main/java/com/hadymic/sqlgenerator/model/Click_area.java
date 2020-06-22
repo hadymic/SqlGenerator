@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_click_area")
 @TableName("ad_click_area")
-public class Click_area extends BaseModel {
+public class Click_area {
 
     @IsKey
     @IsAutoIncrement

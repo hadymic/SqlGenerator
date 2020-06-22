@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "ad_tpl_info_data")
 @TableName("ad_tpl_info_data")
-public class Tpl_info_data extends BaseModel {
+public class Tpl_info_data {
     @IsKey
     @Column
     @TableId

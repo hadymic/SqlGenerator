@@ -3,6 +3,7 @@
   */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -28,16 +29,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_jsonRootBean")
 @TableName("ad_jsonRootBean")
-public class JsonRootBean extends BaseModel {
+public class JsonRootBean {
 
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
-
+    @TableField(exist = false)
     private Ad_Data data;
-
+    @TableField(exist = false)
     private Event event;
     @Column
     @TableField

@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_image")
 @TableName("ad_image")
-public class Image extends BaseModel {
+public class Image {
 
     @IsKey
     @IsAutoIncrement

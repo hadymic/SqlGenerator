@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_media_ext")
 @TableName("ad_media_ext")
-public class Media_ext extends BaseModel {
+public class Media_ext {
 
     @IsKey
     @IsAutoIncrement

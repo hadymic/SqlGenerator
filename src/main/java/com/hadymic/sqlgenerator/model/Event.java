@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_event")
 @TableName("ad_event")
-public class Event extends BaseModel {
+public class Event {
 
     @IsKey
     @IsAutoIncrement
