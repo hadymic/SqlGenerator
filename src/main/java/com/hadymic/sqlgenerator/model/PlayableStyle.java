@@ -1,8 +1,6 @@
-/**
- * Copyright 2020 bejson.com
- */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -16,42 +14,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Auto-generated: 2020-06-19 9:22:58
- *
- * @author bejson.com (i@bejson.com)
- * @website http://www.bejson.com/java2pojo/
- */
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_click_area")
-@TableName("ad_click_area")
-public class Click_area {
-
+@Table(name = "ad_playable_style")
+@TableName("ad_playable_style")
+public class PlayableStyle {
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @Column
     @TableField
-    private Boolean click_upper_content_area;
-    @Column
-    @TableField
-    private Boolean click_upper_non_content_area;
-    @Column
-    @TableField
-    private Boolean click_lower_content_area;
-    @Column
-    @TableField
-    private Boolean click_lower_non_content_area;
-    @Column
-    @TableField
-    private Boolean click_button_area;
-    @Column
-    @TableField
-    private Boolean click_video_area;
-
+    private Integer display_playable_download_button;
 }

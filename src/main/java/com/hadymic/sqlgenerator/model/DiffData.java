@@ -1,8 +1,9 @@
 /**
-  * Copyright 2020 bejson.com 
-  */
+ * Copyright 2020 bejson.com
+ */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -10,14 +11,15 @@ import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsAutoIncrement;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsKey;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
-import com.gitee.sunchenbin.mybatis.actable.command.BaseModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
- * Auto-generated: 2020-06-19 9:22:58
+ * Auto-generated: 2020-06-19 10:18:57
  *
  * @author bejson.com (i@bejson.com)
  * @website http://www.bejson.com/java2pojo/
@@ -26,20 +28,32 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_media_ext")
-@TableName("ad_media_ext")
-public class Media_ext {
+@Table(name = "ad_diff_data")
+@TableName("ad_diff_data")
+public class DiffData {
 
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
+    @TableField(exist = false)
+    private DiffData diff_data;
     @Column
     @TableField
-    private String tag_id;
+    private Integer diff_data_id;
     @Column
     @TableField
-    private String request_id;
+    private String tag_diff;
+    @TableField(exist = false)
+    private Values values;
+    @Column
+    @TableField
+    private Integer values_id;
+    @TableField(exist = false)
+    private List<DiffDataChildren> children;
+    @Column
+    @TableField
+    private String children_ids;
 
 }

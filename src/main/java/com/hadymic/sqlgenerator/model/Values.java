@@ -3,6 +3,7 @@
  */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -34,7 +35,7 @@ public class Values {
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @Column
     @TableField
@@ -114,7 +115,7 @@ public class Values {
     @Column
     @TableField
     private String textAlign;
-
+    @TableField(exist = false)
     private List<Animation> animations;
     @Column
     @TableField

@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Click_area;
+import com.hadymic.sqlgenerator.model.ClickArea;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Click_area;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdClickAreaService extends IService<Click_area> {
+public interface IAdClickAreaService extends IService<ClickArea> {
 
 }

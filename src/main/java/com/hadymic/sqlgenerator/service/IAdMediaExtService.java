@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Media_ext;
+import com.hadymic.sqlgenerator.model.MediaExt;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Media_ext;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdMediaExtService extends IService<Media_ext> {
+public interface IAdMediaExtService extends IService<MediaExt> {
 
 }

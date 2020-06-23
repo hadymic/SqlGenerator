@@ -2,7 +2,7 @@ package com.hadymic.sqlgenerator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hadymic.sqlgenerator.mapper.AdTplInfoMapper;
-import com.hadymic.sqlgenerator.model.Tpl_info;
+import com.hadymic.sqlgenerator.model.TplInfo;
 import com.hadymic.sqlgenerator.service.IAdTplInfoService;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-22
  */
 @Service
-public class AdTplInfoServiceImpl extends ServiceImpl<AdTplInfoMapper, Tpl_info> implements IAdTplInfoService {
+public class AdTplInfoServiceImpl extends ServiceImpl<AdTplInfoMapper, TplInfo> implements IAdTplInfoService {
 
 }

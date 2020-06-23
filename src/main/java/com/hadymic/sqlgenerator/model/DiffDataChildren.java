@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsKey;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
-import com.gitee.sunchenbin.mybatis.actable.command.BaseModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,28 +13,27 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Auto-generated: 2020-06-19 10:18:57
+ *
+ * @author bejson.com (i@bejson.com)
+ * @website http://www.bejson.com/java2pojo/
+ */
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_tpl_info_data")
-@TableName("ad_tpl_info_data")
-public class Tpl_info_data {
+@Table(name = "ad_diff_data_children")
+@TableName("ad_diff_data_children")
+public class DiffDataChildren {
     @IsKey
     @Column
     @TableId
     private String id;
-    @Column
-    @TableField
-    private String type;
 
-    private Values values;
+    @TableField(exist = false)
+    private List<DiffDataChildren> children;
     @Column
     @TableField
-    private Integer values_id;
-
-    private List<Tpl_info_data> children;
-    @Column
-    @TableField
-    private String Tpl_info_data_ids;
+    private String children_ids;
 }

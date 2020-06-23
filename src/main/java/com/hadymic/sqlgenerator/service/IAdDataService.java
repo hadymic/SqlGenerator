@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Ad_Data;
+import com.hadymic.sqlgenerator.model.AdData;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Ad_Data;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdDataService extends IService<Ad_Data> {
+public interface IAdDataService extends IService<AdData> {
 
 }

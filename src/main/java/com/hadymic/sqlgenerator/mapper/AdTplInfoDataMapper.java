@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hadymic.sqlgenerator.model.Tpl_info_data;
+import com.hadymic.sqlgenerator.model.TplInfoData;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Tpl_info_data;
  * @author jobob
  * @since 2020-06-22
  */
-public interface AdTplInfoDataMapper extends BaseMapper<Tpl_info_data> {
+public interface AdTplInfoDataMapper extends BaseMapper<TplInfoData> {
 
 }

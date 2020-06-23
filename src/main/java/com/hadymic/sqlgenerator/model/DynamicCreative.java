@@ -3,6 +3,7 @@
  */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -28,12 +29,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "ad_dynamic_creative")
 @TableName("ad_dynamic_creative")
-public class Dynamic_creative {
+public class DynamicCreative {
 
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @Column
     @TableField

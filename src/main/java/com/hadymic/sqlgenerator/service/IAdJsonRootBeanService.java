@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.JsonRootBean;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdJsonrootbeanService extends IService<JsonRootBean> {
+public interface IAdJsonRootBeanService extends IService<JsonRootBean> {
 
 }

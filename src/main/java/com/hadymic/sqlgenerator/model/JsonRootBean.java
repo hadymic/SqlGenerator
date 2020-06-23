@@ -11,7 +11,6 @@ import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsAutoIncrement;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsKey;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
-import com.gitee.sunchenbin.mybatis.actable.command.BaseModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,7 +36,7 @@ public class JsonRootBean {
     @TableId(type = IdType.AUTO)
     private Integer id;
     @TableField(exist = false)
-    private Ad_Data data;
+    private AdData data;
     @TableField(exist = false)
     private Event event;
     @Column

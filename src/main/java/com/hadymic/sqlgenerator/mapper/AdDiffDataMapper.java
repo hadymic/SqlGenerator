@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hadymic.sqlgenerator.model.Diff_data;
+import com.hadymic.sqlgenerator.model.DiffData;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Diff_data;
  * @author jobob
  * @since 2020-06-22
  */
-public interface AdDiffDataMapper extends BaseMapper<Diff_data> {
+public interface AdDiffDataMapper extends BaseMapper<DiffData> {
 
 }

@@ -1,8 +1,9 @@
 /**
-  * Copyright 2020 bejson.com 
-  */
+ * Copyright 2020 bejson.com
+ */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -26,32 +27,32 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_download_conf")
-@TableName("ad_download_conf")
-public class Download_conf {
+@Table(name = "ad_click_area")
+@TableName("ad_click_area")
+public class ClickArea {
 
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @Column
     @TableField
-    private Integer auto_open;
+    private Boolean click_upper_content_area;
     @Column
     @TableField
-    private Integer download_mode;
+    private Boolean click_upper_non_content_area;
     @Column
     @TableField
-    private Integer support_multiple;
+    private Boolean click_lower_content_area;
     @Column
     @TableField
-    private Integer download_type;
+    private Boolean click_lower_non_content_area;
     @Column
     @TableField
-    private Integer auto_control;
+    private Boolean click_button_area;
     @Column
     @TableField
-    private Integer if_suspend_download;
+    private Boolean click_video_area;
 
 }

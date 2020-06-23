@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Dynamic_creative;
+import com.hadymic.sqlgenerator.model.DynamicCreative;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Dynamic_creative;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdDynamicCreativeService extends IService<Dynamic_creative> {
+public interface IAdDynamicCreativeService extends IService<DynamicCreative> {
 
 }

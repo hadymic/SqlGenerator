@@ -2,7 +2,7 @@ package com.hadymic.sqlgenerator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hadymic.sqlgenerator.mapper.AdDiffDataMapper;
-import com.hadymic.sqlgenerator.model.Diff_data;
+import com.hadymic.sqlgenerator.model.DiffData;
 import com.hadymic.sqlgenerator.service.IAdDiffDataService;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-22
  */
 @Service
-public class AdDiffDataServiceImpl extends ServiceImpl<AdDiffDataMapper, Diff_data> implements IAdDiffDataService {
+public class AdDiffDataServiceImpl extends ServiceImpl<AdDiffDataMapper, DiffData> implements IAdDiffDataService {
 
 }

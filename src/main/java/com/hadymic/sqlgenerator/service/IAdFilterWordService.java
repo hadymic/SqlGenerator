@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Filter_word;
+import com.hadymic.sqlgenerator.model.FilterWord;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Filter_word;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdFilterWordService extends IService<Filter_word> {
+public interface IAdFilterWordService extends IService<FilterWord> {
 
 }

@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Diff_data;
+import com.hadymic.sqlgenerator.model.DiffData;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Diff_data;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdDiffDataService extends IService<Diff_data> {
+public interface IAdDiffDataService extends IService<DiffData> {
 
 }

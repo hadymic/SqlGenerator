@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Deep_link;
+import com.hadymic.sqlgenerator.model.DeepLink;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Deep_link;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdDeepLinkService extends IService<Deep_link> {
+public interface IAdDeepLinkService extends IService<DeepLink> {
 
 }

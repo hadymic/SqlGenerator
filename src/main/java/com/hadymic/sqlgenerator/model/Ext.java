@@ -3,6 +3,7 @@
   */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -33,7 +34,7 @@ public class Ext {
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @Column
     @TableField
@@ -167,7 +168,7 @@ public class Ext {
     @Column
     @TableField
     private Long rit;
-    @Column
+    @Column(length = 1020)
     @TableField
     private String vid;
     @Column

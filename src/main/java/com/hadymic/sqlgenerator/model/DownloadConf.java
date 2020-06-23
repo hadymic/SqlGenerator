@@ -1,5 +1,9 @@
+/**
+  * Copyright 2020 bejson.com 
+  */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -13,25 +17,42 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Auto-generated: 2020-06-19 9:22:58
+ *
+ * @author bejson.com (i@bejson.com)
+ * @website http://www.bejson.com/java2pojo/
+ */
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_deep_link")
-@TableName("ad_deep_link")
-public class Deep_link {
+@Table(name = "ad_download_conf")
+@TableName("ad_download_conf")
+public class DownloadConf {
+
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @Column
     @TableField
-    private String deeplink_url;
+    private Integer auto_open;
     @Column
     @TableField
-    private Integer fallback_type;
+    private Integer download_mode;
     @Column
     @TableField
-    private String fallback_url;
+    private Integer support_multiple;
+    @Column
+    @TableField
+    private Integer download_type;
+    @Column
+    @TableField
+    private Integer auto_control;
+    @Column
+    @TableField
+    private Integer if_suspend_download;
+
 }

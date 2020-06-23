@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Session_param;
+import com.hadymic.sqlgenerator.model.SessionParam;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Session_param;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdSessionParamService extends IService<Session_param> {
+public interface IAdSessionParamService extends IService<SessionParam> {
 
 }

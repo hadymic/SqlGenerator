@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Playable_style;
+import com.hadymic.sqlgenerator.model.PlayableStyle;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Playable_style;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdPlayableStyleService extends IService<Playable_style> {
+public interface IAdPlayableStyleService extends IService<PlayableStyle> {
 
 }

@@ -1,5 +1,6 @@
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -23,7 +24,7 @@ public class Animation {
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @Column
     @TableField
@@ -31,19 +32,19 @@ public class Animation {
     @Column
     @TableField
     private Double animationDuration;
-    @Column
+    @Column(name = "animation_translate_x")
     @TableField
     private Integer animationTranslateX;
-    @Column
+    @Column(name = "animation_translate_y")
     @TableField
     private Integer animationTranslateY;
-    @Column
+    @Column(name = "animation_time_function")
     @TableField
     private String animationTimeFunction;
     @Column
     @TableField
     private Integer animationDelay;
-    @Column
+    @Column(name = "animation_iteration_count")
     @TableField
     private Integer animationIterationCount;
     @Column
@@ -53,15 +54,15 @@ public class Animation {
     @TableField
     private Integer animationInterval;
     @Column
-    @TableField
+    @TableField("`key`")
     private Long key;
-    @Column
+    @Column(name = "animation_ripple_background_color")
     @TableField
     private String animationRippleBackgroundColor;
-    @Column
+    @Column(name = "animation_scale_x")
     @TableField
     private Double animationScaleX;
-    @Column
+    @Column(name = "animation_scale_y")
     @TableField
     private Double animationScaleY;
 }

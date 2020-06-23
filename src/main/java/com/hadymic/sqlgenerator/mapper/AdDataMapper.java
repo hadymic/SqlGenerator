@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hadymic.sqlgenerator.model.Ad_Data;
+import com.hadymic.sqlgenerator.model.AdData;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Ad_Data;
  * @author jobob
  * @since 2020-06-22
  */
-public interface AdDataMapper extends BaseMapper<Ad_Data> {
+public interface AdDataMapper extends BaseMapper<AdData> {
 
 }

@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.JsonRootBean;
  * @author jobob
  * @since 2020-06-22
  */
-public interface AdJsonrootbeanMapper extends BaseMapper<JsonRootBean> {
+public interface AdJsonRootBeanMapper extends BaseMapper<JsonRootBean> {
 
 }

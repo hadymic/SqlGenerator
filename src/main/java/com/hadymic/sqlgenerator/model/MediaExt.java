@@ -1,8 +1,9 @@
 /**
- * Copyright 2020 bejson.com
- */
+  * Copyright 2020 bejson.com 
+  */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -16,10 +17,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
- * Auto-generated: 2020-06-19 10:18:57
+ * Auto-generated: 2020-06-19 9:22:58
  *
  * @author bejson.com (i@bejson.com)
  * @website http://www.bejson.com/java2pojo/
@@ -28,32 +27,20 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_diff_data")
-@TableName("ad_diff_data")
-public class Diff_data {
+@Table(name = "ad_media_ext")
+@TableName("ad_media_ext")
+public class MediaExt {
 
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
-
-    private Diff_data diff_data;
     @Column
     @TableField
-    private Integer diff_data_id;
+    private String tag_id;
     @Column
     @TableField
-    private String tag_diff;
-
-    private Values values;
-    @Column
-    @TableField
-    private Integer values_id;
-
-    private List<Tpl_info_data> children;
-    @Column
-    @TableField
-    private String tpl_info_data_ids;
+    private String request_id;
 
 }

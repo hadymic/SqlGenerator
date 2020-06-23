@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hadymic.sqlgenerator.model.Filter_word;
+import com.hadymic.sqlgenerator.model.FilterWord;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Filter_word;
  * @author jobob
  * @since 2020-06-22
  */
-public interface AdFilterWordMapper extends BaseMapper<Filter_word> {
+public interface AdFilterWordMapper extends BaseMapper<FilterWord> {
 
 }

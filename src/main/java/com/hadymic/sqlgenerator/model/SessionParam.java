@@ -1,6 +1,3 @@
-/**
- * Copyright 2020 bejson.com
- */
 package com.hadymic.sqlgenerator.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -17,20 +14,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Auto-generated: 2020-06-22 10:47:48
- *
- * @author bejson.com (i@bejson.com)
- * @website http://www.bejson.com/java2pojo/
- */
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_video")
-@TableName("ad_video")
-public class Video {
-
+@Table(name = "ad_session_param")
+@TableName("ad_session_param")
+public class SessionParam {
     @IsKey
     @IsAutoIncrement
     @Column
@@ -38,39 +28,20 @@ public class Video {
     private Integer id;
     @Column
     @TableField
-    private Integer cover_height;
+    private Integer ad_count_require;
     @Column
     @TableField
-    private String cover_url;
+    private String ext;
     @Column
     @TableField
-    private Integer cover_width;
-    @Column(length = 1530)
-    @TableField
-    private String endcard;
+    private Long parent_aid;
     @Column
     @TableField
-    private String file_hash;
+    private Long parent_cid;
     @Column
     @TableField
-    private String resolution;
+    private String parent_request_id;
     @Column
     @TableField
-    private Long size;
-    @Column
-    @TableField
-    private Double video_duration;
-    @Column
-    @TableField
-    private String video_url;
-    @Column
-    @TableField
-    private String playable_download_url;
-    @Column
-    @TableField
-    private Integer if_playable_loading_show;
-    @Column
-    @TableField
-    private Integer remove_loading_page_type;
-
+    private Integer parent_type;
 }

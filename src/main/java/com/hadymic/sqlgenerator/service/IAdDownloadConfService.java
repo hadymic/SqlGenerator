@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hadymic.sqlgenerator.model.Download_conf;
+import com.hadymic.sqlgenerator.model.DownloadConf;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Download_conf;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdDownloadConfService extends IService<Download_conf> {
+public interface IAdDownloadConfService extends IService<DownloadConf> {
 
 }

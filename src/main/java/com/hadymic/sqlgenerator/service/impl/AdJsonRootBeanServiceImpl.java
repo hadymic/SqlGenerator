@@ -1,9 +1,9 @@
 package com.hadymic.sqlgenerator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.hadymic.sqlgenerator.mapper.AdJsonrootbeanMapper;
+import com.hadymic.sqlgenerator.mapper.AdJsonRootBeanMapper;
 import com.hadymic.sqlgenerator.model.JsonRootBean;
-import com.hadymic.sqlgenerator.service.IAdJsonrootbeanService;
+import com.hadymic.sqlgenerator.service.IAdJsonRootBeanService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-22
  */
 @Service
-public class AdJsonrootbeanServiceImpl extends ServiceImpl<AdJsonrootbeanMapper, JsonRootBean> implements IAdJsonrootbeanService {
+public class AdJsonRootBeanServiceImpl extends ServiceImpl<AdJsonRootBeanMapper, JsonRootBean> implements IAdJsonRootBeanService {
 
 }

@@ -2,7 +2,7 @@ package com.hadymic.sqlgenerator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hadymic.sqlgenerator.mapper.AdDeepLinkMapper;
-import com.hadymic.sqlgenerator.model.Deep_link;
+import com.hadymic.sqlgenerator.model.DeepLink;
 import com.hadymic.sqlgenerator.service.IAdDeepLinkService;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-22
  */
 @Service
-public class AdDeepLinkServiceImpl extends ServiceImpl<AdDeepLinkMapper, Deep_link> implements IAdDeepLinkService {
+public class AdDeepLinkServiceImpl extends ServiceImpl<AdDeepLinkMapper, DeepLink> implements IAdDeepLinkService {
 
 }

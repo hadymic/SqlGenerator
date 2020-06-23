@@ -3,14 +3,15 @@
  */
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsAutoIncrement;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsKey;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
-import com.gitee.sunchenbin.mybatis.actable.command.BaseModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,12 +31,12 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "ad_data")
 @TableName("ad_data")
-public class Ad_Data {
+public class AdData {
 
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @Column
     @TableField
@@ -64,10 +65,8 @@ public class Ad_Data {
     @Column
     @TableField
     private Integer playable_type;
-    //TODO
-    @Column
-    @TableField
-    private String playable_style;
+    @TableField(exist = false)
+    private PlayableStyle playable_style;
     @Column
     @TableField
     private Integer playable_style_id;
@@ -77,32 +76,32 @@ public class Ad_Data {
     @Column
     @TableField
     private Integer if_block_lp;
-
+    @TableField(exist = false)
     private Icon icon;
     @Column
     @TableField
     private Integer icon_id;
-
-    private Click_area click_area;
+    @TableField(exist = false)
+    private ClickArea click_area;
     @Column
     @TableField
     private Integer click_area_id;
-
+    @TableField(exist = false)
     private Adslot adslot;
     @Column
     @TableField
     private Integer adslot_id;
-
+    @TableField(exist = false)
     private List<Image> image;
     @Column
     @TableField
     private String image_ids;
-
+    @TableField(exist = false)
     private List<String> show_url;
     @Column
     @TableField
     private String show_url_list;
-
+    @TableField(exist = false)
     private List<String> click_url;
     @Column
     @TableField
@@ -116,7 +115,7 @@ public class Ad_Data {
     @Column
     @TableField
     private String description;
-
+    @TableField(exist = false)
     private Ext ext;
     @Column
     @TableField
@@ -139,13 +138,13 @@ public class Ad_Data {
     @Column
     @TableField
     private Integer feed_video_opentype;
-
+    @TableField(exist = false)
     private App app;
     @Column
     @TableField
     private Integer app_id;
-
-    private List<Filter_word> filter_words;
+    @TableField(exist = false)
+    private List<FilterWord> filter_words;
     @Column
     @TableField
     private String filter_words_ids;
@@ -155,35 +154,35 @@ public class Ad_Data {
     @Column
     @TableField
     private Integer expiration_time;
-
-    private Download_conf download_conf;
+    @TableField(exist = false)
+    private DownloadConf download_conf;
     @Column
     @TableField
     private Integer download_conf_id;
-
-    private Media_ext media_ext;
+    @TableField(exist = false)
+    private MediaExt media_ext;
     @Column
     @TableField
     private Integer media_ext_id;
-
-    private Tpl_info tpl_info;
+    @TableField(exist = false)
+    private TplInfo tpl_info;
     @Column
     @TableField
     private String tpl_info_id;
     @Column
     @TableField
     private String market_url;
-
-    private Deep_link deep_link;
+    @TableField(exist = false)
+    private DeepLink deep_link;
     @Column
     @TableField
     private Integer deep_link_id;
-
-    private Session_param session_params;
+    @TableField(exist = false)
+    private SessionParam session_params;
     @Column
     @TableField
     private Integer session_params_id;
-
+    @TableField(exist = false)
     private Video video;
     @Column
     @TableField

@@ -1,46 +1,41 @@
 package com.hadymic.sqlgenerator.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
-import com.gitee.sunchenbin.mybatis.actable.annotation.IsAutoIncrement;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsKey;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
-import com.gitee.sunchenbin.mybatis.actable.command.BaseModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_session_param")
-@TableName("ad_session_param")
-public class Session_param {
+@Table(name = "ad_tpl_info_data")
+@TableName("ad_tpl_info_data")
+public class TplInfoData {
     @IsKey
-    @IsAutoIncrement
     @Column
-    @TableId
-    private Integer id;
-    @Column
-    @TableField
-    private Integer ad_count_require;
+    @TableId(type = IdType.ASSIGN_ID)
+    private String id;
     @Column
     @TableField
-    private String ext;
+    private String type;
+    @TableField(exist = false)
+    private Values values;
     @Column
     @TableField
-    private Long parent_aid;
+    private Integer values_id;
+    @TableField(exist = false)
+    private List<TplInfoData> children;
     @Column
     @TableField
-    private Long parent_cid;
-    @Column
-    @TableField
-    private String parent_request_id;
-    @Column
-    @TableField
-    private Integer parent_type;
+    private String children_ids;
 }

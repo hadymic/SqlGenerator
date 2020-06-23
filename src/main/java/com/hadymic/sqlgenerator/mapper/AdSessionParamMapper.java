@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hadymic.sqlgenerator.model.Session_param;
+import com.hadymic.sqlgenerator.model.SessionParam;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Session_param;
  * @author jobob
  * @since 2020-06-22
  */
-public interface AdSessionParamMapper extends BaseMapper<Session_param> {
+public interface AdSessionParamMapper extends BaseMapper<SessionParam> {
 
 }

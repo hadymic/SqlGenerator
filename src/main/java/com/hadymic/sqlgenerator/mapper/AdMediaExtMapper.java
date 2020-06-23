@@ -1,7 +1,7 @@
 package com.hadymic.sqlgenerator.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hadymic.sqlgenerator.model.Media_ext;
+import com.hadymic.sqlgenerator.model.MediaExt;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.Media_ext;
  * @author jobob
  * @since 2020-06-22
  */
-public interface AdMediaExtMapper extends BaseMapper<Media_ext> {
+public interface AdMediaExtMapper extends BaseMapper<MediaExt> {
 
 }
