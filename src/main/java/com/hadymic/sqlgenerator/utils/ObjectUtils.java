@@ -24,14 +24,11 @@ public class ObjectUtils {
                         if (list.size() > 0) {
                             list.forEach(ObjectUtils::checkObjAllFieldIsNull);
                         }
-                    }
-                    if (f.get(obj) instanceof Number || f.get(obj) instanceof Character || f.get(obj) instanceof Boolean) {
+                    } else if (f.get(obj) instanceof Number || f.get(obj) instanceof Character || f.get(obj) instanceof Boolean) {
+                        return false;
+                    } else if (f.get(obj) instanceof String && !"".equals(f.get(obj))) {
                         return false;
                     }
-                    if (f.get(obj) instanceof String && "".equals(f.get(obj))) {
-                        continue;
-                    }
-                    return checkObjAllFieldIsNull(f.get(obj));
                 }
             }
             return true;

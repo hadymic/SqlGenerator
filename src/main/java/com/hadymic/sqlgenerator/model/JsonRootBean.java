@@ -26,8 +26,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ad_jsonRootBean")
-@TableName("ad_jsonRootBean")
+@Table(name = "ad_json_root_bean")
+@TableName("ad_json_root_bean")
 public class JsonRootBean {
 
     @IsKey

@@ -20,6 +20,6 @@ public class AdJson2SqlController {
     public String adJson2Sql(@RequestBody JsonRootBean root) {
         log.info(++num + " : " + "AdJsonBean: " + root.toString());
         boolean b = adJson2SqlService.save(root);
-        return b ? "success" : "false";
+        return b ? "success" : "fail";
     }
 }

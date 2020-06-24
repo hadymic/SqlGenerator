@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.AdData;
  * @author jobob
  * @since 2020-06-22
  */
-public interface AdDataMapper extends BaseMapper<AdData> {
+public interface AdAdDataMapper extends BaseMapper<AdData> {
 
 }

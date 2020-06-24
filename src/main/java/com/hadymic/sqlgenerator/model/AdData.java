@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsAutoIncrement;
 import com.gitee.sunchenbin.mybatis.actable.annotation.IsKey;
@@ -41,7 +40,7 @@ public class AdData {
     @Column
     @TableField
     private Integer interaction_type;
-    @Column
+    @Column(length = 1020)
     @TableField
     private String target_url;
     @Column
@@ -98,7 +97,7 @@ public class AdData {
     private String image_ids;
     @TableField(exist = false)
     private List<String> show_url;
-    @Column
+    @Column(length = 1020)
     @TableField
     private String show_url_list;
     @TableField(exist = false)

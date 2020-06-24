@@ -11,6 +11,6 @@ import com.hadymic.sqlgenerator.model.AdData;
  * @author jobob
  * @since 2020-06-22
  */
-public interface IAdDataService extends IService<AdData> {
+public interface IAdAdDataService extends IService<AdData> {
 
 }

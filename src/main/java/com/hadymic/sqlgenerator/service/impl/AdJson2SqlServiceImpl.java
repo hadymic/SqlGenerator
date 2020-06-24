@@ -1,6 +1,5 @@
 package com.hadymic.sqlgenerator.service.impl;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.hadymic.sqlgenerator.model.*;
 import com.hadymic.sqlgenerator.service.IAdFilterWordService;
