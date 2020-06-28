@@ -12,11 +12,13 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class HttpClient4 {
     public static String doGet(String url) {
@@ -144,6 +146,16 @@ public class HttpClient4 {
         }
     }
 
+    public static void write2Log(String filePath, String json) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(json);
+            writer.newLine();
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
     public void test() {
         String filePath = "D:\\log-20200617.log";
@@ -153,8 +165,28 @@ public class HttpClient4 {
 
     @Test
     public void test2() {
-        String url = "https://api3-normal-c-hl.snssdk.com/api/ad/splash/news_article/v14/?_unused=0&carrier=%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A&ad_area=1080x1848&sdk_version=19229&os_api=28&device_platform=android&os_version=9&display_density=1080x1920&dpi=480&device_brand=Xiaomi&device_type=MI+6&bh=368&display_dpi=480&density=3.0&ac=wifi&channel=xiaomi&aid=13&app_name=news_article&language=zh&refresh_num=7&is_cold_start=0&latitude=26.078305&longitude=119.262438&device_id=56051959155&version_code=778&version_name=7.7.8&manifest_version_code=7780&resolution=1080*1920&update_version_code=77811";
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYYMMdd");
+        String filePath = "D:\\adSplashLog\\log-" + dateFormat.format(date) + ".log";
+        String url = "https://api3-normal-c-hl.snssdk.com/api/ad/splash/news_article/v14/?_unused=0&carrier=%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A&mcc_mnc=46001&ad_area=1080x1848&sdk_version=19229&os_api=28&device_platform=android&os_version=9&display_density=1080x1920&dpi=480&device_brand=Xiaomi&device_type=MI+6&bh=368&display_dpi=480&density=3.0&ac=wifi&channel=xiaomi&aid=13&app_name=news_article&language=zh&mac_address=00%3AEC%3A0A%3AF6%3A98%3A3E&refresh_num=7&is_cold_start=0&latitude=26.078305&longitude=119.262438&iid=940834812870488&device_id=56051959156&version_code=778&version_name=7.7.8&ab_version=662176%2C1802839%2C1417596%2C662099%2C668774%2C1789430%2C1804366%2C1529249%2C668775%2C1789132%2C1469462%2C1469498%2C1576658%2C1190524%2C1789127%2C1797644%2C1157750%2C1593455%2C1484965%2C1419045%2C1413880%2C1809700%2C1419598%2C668779%2C660830&ab_feature=94563%2C102749&ssmix=a&openudid=7bcd62fb4aef81c6&manifest_version_code=7780&resolution=1080*1920&update_version_code=77811&_rticket=1592988339861&plugin=18506&pos=5r_-9Onkv6e_ejsSeCoDeCUfv7G_8fLz-vTp6Pn4v6esrKSzr6uvqa6lsb_x_On06ej5-L-nr6uzraqlrq2osb_88Pzt3vTp5L-nv3o7EngqA3glH7-xv_zw_O3R8vP69Ono-fi_p6yspLOvq6-prqWxv_zw_O3R_On06ej5-L-nr6uzraqlrq2o4A%3D%3D&host_abi=armeabi-v7a&tma_jssdk_version=1.68.0.4&rom_version=miui_v12_20.6.18&cdid=b50e94de-46e5-4ea5-b001-8d745eedd208&oaid=be407f8d85394a15";
         String json = doGet(url);
+        write2Log(filePath, json);
         System.out.println(json);
+    }
+
+    public static void main(String[] args) {
+        Runnable runnable = () -> {
+            Date date = new Date();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("YYYYMMdd");
+            SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+            String filePath = "D:\\adSplashLog\\log-" + dateFormat.format(date) + ".log";
+            String url = "https://api3-normal-c-hl.snssdk.com/api/ad/splash/news_article/v14/?_unused=0&carrier=%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A&mcc_mnc=46001&ad_area=1080x1848&sdk_version=19229&os_api=28&device_platform=android&os_version=9&display_density=1080x1920&dpi=480&device_brand=Xiaomi&device_type=MI+6&bh=368&display_dpi=480&density=3.0&ac=wifi&channel=xiaomi&aid=13&app_name=news_article&language=zh&mac_address=00%3AEC%3A0A%3AF6%3A98%3A3E&refresh_num=7&is_cold_start=0&latitude=26.078305&longitude=119.262438&iid=940834812870488&device_id=56051959156&version_code=778&version_name=7.7.8&ab_version=662176%2C1802839%2C1417596%2C662099%2C668774%2C1789430%2C1804366%2C1529249%2C668775%2C1789132%2C1469462%2C1469498%2C1576658%2C1190524%2C1789127%2C1797644%2C1157750%2C1593455%2C1484965%2C1419045%2C1413880%2C1809700%2C1419598%2C668779%2C660830&ab_feature=94563%2C102749&ssmix=a&openudid=7bcd62fb4aef81c6&manifest_version_code=7780&resolution=1080*1920&update_version_code=77811&_rticket=1592988339861&plugin=18506&pos=5r_-9Onkv6e_ejsSeCoDeCUfv7G_8fLz-vTp6Pn4v6esrKSzr6uvqa6lsb_x_On06ej5-L-nr6uzraqlrq2osb_88Pzt3vTp5L-nv3o7EngqA3glH7-xv_zw_O3R8vP69Ono-fi_p6yspLOvq6-prqWxv_zw_O3R_On06ej5-L-nr6uzraqlrq2o4A%3D%3D&host_abi=armeabi-v7a&tma_jssdk_version=1.68.0.4&rom_version=miui_v12_20.6.18&cdid=b50e94de-46e5-4ea5-b001-8d745eedd208&oaid=be407f8d85394a15";
+            String json = doGet(url);
+            write2Log(filePath, json);
+            System.out.println(sdf.format(date) + json);
+        };
+        ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+        // 第二个参数为首次执行的延时时间，第三个参数为定时执行的间隔时间
+        service.scheduleAtFixedRate(runnable, 1, 5, TimeUnit.MINUTES);
     }
 }
