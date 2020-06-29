@@ -3,11 +3,12 @@ actable:
   table:
     auto: update
   model:
-    pack: com.hadymic.sqlgenerator.model
+    pack: com.hadymic.sqlgenerator.splash.model
   database:
     type: mysql
 # mybatis的配置信息，key也可能是：mybatis.mapper-locations
-#mybatis.mapperLocations=classpath:com/hadymic/sqlgenerator/mapper/*.xml
+mybatis:
+  mapperLocations: classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml
 
 spring:
   datasource:

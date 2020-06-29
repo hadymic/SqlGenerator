@@ -130,7 +130,8 @@ public class CodeGenerator {
 //        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id");
-        strategy.setInclude("ad_adslot,ad_animation,ad_app,ad_click_area,ad_data,ad_deep_link,ad_diff_data,ad_download_conf,ad_dynamic_creative,ad_event,ad_ext,ad_filter_word,ad_icon,ad_image,ad_jsonrootbean,ad_media_ext,ad_option,ad_playable_style,ad_session_param,ad_tpl_info,ad_tpl_info_data,ad_values,ad_video".split(","));
+//        strategy.setInclude("ad_adslot,ad_animation,ad_app,ad_click_area,ad_data,ad_deep_link,ad_diff_data,ad_download_conf,ad_dynamic_creative,ad_event,ad_ext,ad_filter_word,ad_icon,ad_image,ad_jsonrootbean,ad_media_ext,ad_option,ad_playable_style,ad_session_param,ad_tpl_info,ad_tpl_info_data,ad_values,ad_video".split(","));
+        strategy.setInclude("splash,splash_image_info,splash_log_extra,splash_share_info,splash_skip_info,splash_video_info".split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

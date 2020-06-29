@@ -20,19 +20,19 @@ public class DataAnalysis {
             int lineNum = 1;
             while ((line = reader.readLine()) != null) {
                 line = line.replaceAll("\\\\+\"", "\"");//剔除例如\\"，这样的转义
-                line = line.replaceAll("\\\\\\\\/", "/");//更改\\/为/
+//                line = line.replaceAll("\\\\\\\\/", "/");//更改\\/为/
                 line = line.replaceAll("\"\\{", "{");//大括号前有引号就去除
                 line = line.replaceAll("}\"", "}");//大括号后有引号就去除
                 //去除多余的[]
-                line = line.replaceAll("\\[\\[\\{", "[{");
-                line = line.replaceAll("}]]", "}]");
-                line = line.replaceAll("}],\\[\\{", "},{");
+//                line = line.replaceAll("\\[\\[\\{", "[{");
+//                line = line.replaceAll("}]]", "}]");
+//                line = line.replaceAll("}],\\[\\{", "},{");
                 //将playable_style的""空字符串改{}
-                line = line.replaceAll("\"playable_style\":\"\"", "\"playable_style\":{}");
+//                line = line.replaceAll("\"playable_style\":\"\"", "\"playable_style\":{}");
                 //将diff_data的""空字符串改{}
-                line = line.replaceAll("\"diff_data\":\"\"", "\"diff_data\":{}");
+//                line = line.replaceAll("\"diff_data\":\"\"", "\"diff_data\":{}");
                 //将tpl_info中data的""空字符串改{}
-                line = line.replaceAll("\"data\":\"\"", "\"data\":{}");
+//                line = line.replaceAll("\"data\":\"\"", "\"data\":{}");
 
                 Set<String> keySet = new TreeSet<>();
                 System.out.println(line);
@@ -97,7 +97,9 @@ public class DataAnalysis {
 
     @Test
     public void test() {
-        String filePath = "D:\\log-20200617.log";
+//        String filePath = "D:\\log-20200617.log";
+//        String filePath = "D:\\adSplashLog\\log-20200628.log";
+        String filePath = "D:\\adNewsArticleLog\\log-20200629.log";
         read2Buffer(filePath);
 
         System.out.println(keyMap.keySet());
