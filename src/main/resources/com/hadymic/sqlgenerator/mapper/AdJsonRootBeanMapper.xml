@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hadymic.sqlgenerator.mapper.AdJsonRootBeanMapper">
+
+    <resultMap id="AdInfoMap" type="com.hadymic.sqlgenerator.model.AdInfo">
+        <id property="id" column="id"/>
+        <result property="ad_id" column="ad_id"/>
+        <result property="interaction_type" column="interaction_type"/>
+        <result property="creative_id" column="creative_id"/>
+        <result property="convert_id" column="convert_id"/>
+        <result property="target_url" column="target_url"/>
+        <result property="source" column="source"/>
+        <result property="show_url_list" column="show_url_list"/>
+        <result property="click_url_list" column="click_url_list"/>
+        <result property="title" column="title"/>
+        <result property="market_url" column="market_url"/>
+        <result property="app_name" column="app_name"/>
+        <result property="package_name" column="package_name"/>
+        <result property="download_url" column="download_url"/>
+        <result property="icon_url" column="icon_url"/>
+        <result property="deeplink_url" column="deeplink_url"/>
+        <result property="fallback_url" column="fallback_url"/>
+        <result property="video_cover_url" column="video_cover_url"/>
+        <result property="endcard" column="endcard"/>
+        <result property="file_hash" column="file_hash"/>
+        <result property="video_duration" column="video_duration"/>
+        <result property="video_url" column="video_url"/>
+        <result property="image_ids" column="image_ids"/>
+    </resultMap>
+    <select id="selectAdInfo" resultMap="AdInfoMap">
+        SELECT d.id,d.interaction_type,d.image_ids, e.ad_id,e.creative_id,e.convert_id,d.target_url,d.source,d.show_url_list,d.click_url_list,d.title,d.market_url,a.app_name,a.package_name,a.download_url,i.url as icon_url,de.deeplink_url,de.fallback_url,v.cover_url as video_cover_url,v.endcard,v.file_hash,v.video_duration,v.video_url
+        FROM ad_data as d left join ad_ext as e on d.ext_id = e.id left join ad_app as a on d.app_id = a.id left join ad_icon as i on d.icon_id = i.id left join ad_deep_link as de on d.deep_link_id = de.id left join ad_video as v on d.video_id = v.id
+    </select>
+</mapper>

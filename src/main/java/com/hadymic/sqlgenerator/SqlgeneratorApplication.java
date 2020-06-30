@@ -7,8 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 //@ComponentScan({"com.gitee.sunchenbin.mybatis.actable.manager.*"})
 //@MapperScan("com.gitee.sunchenbin.mybatis.actable.dao.*")
-@ComponentScan({"com.hadymic.sqlgenerator.*"})
-@MapperScan({"com.baomidou.mybatisplus.samples.quickstart.mapper","com.hadymic.sqlgenerator.mapper.*"})
+@ComponentScan("com.hadymic.sqlgenerator.*")
+@MapperScan({"com.baomidou.mybatisplus.samples.quickstart.mapper","com.hadymic.sqlgenerator.mapper"})
 @SpringBootApplication
 public class SqlgeneratorApplication {
 

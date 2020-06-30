@@ -1,10 +1,8 @@
 package com.hadymic.sqlgenerator.service;
 
-import com.hadymic.sqlgenerator.model.ad.AdJsonRootBean;
-import com.hadymic.sqlgenerator.model.splash.SplashJsonRootBean;
+import com.hadymic.sqlgenerator.model.AdJsonRootBean;
 
 public interface IAdJson2SqlService {
-    boolean saveSplash(SplashJsonRootBean root);
 
     boolean saveAd(AdJsonRootBean root);
 }
