@@ -1,24 +1,23 @@
 package com.hadymic.sqlgenerator.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hadymic.sqlgenerator.mapper.AdImageMapper;
+import com.hadymic.sqlgenerator.mapper.AdInfoMapper;
 import com.hadymic.sqlgenerator.mapper.AdJsonRootBeanMapper;
 import com.hadymic.sqlgenerator.model.AdImage;
 import com.hadymic.sqlgenerator.model.AdInfo;
 import com.hadymic.sqlgenerator.model.AdJsonRootBean;
 import com.hadymic.sqlgenerator.service.IAdJson2SqlService;
-import lombok.extern.java.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Log
 @RestController
+@RequestMapping("ad")
 public class AdJson2SqlController {
     @Autowired
     private IAdJson2SqlService adJson2SqlService;
@@ -29,26 +28,35 @@ public class AdJson2SqlController {
     @Autowired
     private AdImageMapper adImageMapper;
 
+    @Autowired
+    private AdInfoMapper adInfoMapper;
+
+    private static Logger logger = LoggerFactory.getLogger(AdJson2SqlController.class);
+
     private static int adNum = 0;
 
-    @PostMapping("save/ad")
+    @PostMapping("save")
     public String saveAd(@RequestBody AdJsonRootBean root) {
-        log.info(++adNum + " : AdJsonBean: " + root.toString());
+        logger.info(++adNum + " : AdJsonBean: " + root.toString());
         boolean b = adJson2SqlService.saveAd(root);
         return b ? "success" : "fail";
     }
 
     @GetMapping("get")
     public List<AdInfo> get() {
-        List<AdInfo> adInfos = adJsonRootBeanMapper.selectAdInfo();
-        for (AdInfo adInfo : adInfos) {
-            String image_ids = adInfo.getImage_ids();
-            String[] imageIds = image_ids.substring(1, image_ids.length() - 1).split(",");
-            List<AdImage> images = adImageMapper.selectBatchIds(Arrays.asList(imageIds));
-            List<String> urls = images.stream().map(AdImage::getUrl).collect(Collectors.toList());
-            adInfo.setImage_url(urls);
+        List<AdInfo> adInfos = adInfoMapper.selectAll();
 
-            log.info(++adNum + " : AdInfo: " + adInfo.toString());
+        for (AdInfo adInfo : adInfos) {
+            String imageIds = adInfo.getImage_ids();
+            imageIds = imageIds.substring(1, imageIds.length() - 1);
+            String[] split = imageIds.split(",");
+
+            List<AdImage> adImageList = new ArrayList<>();
+            for (String imageId : split) {
+                AdImage adImage = adImageMapper.selectById(imageId);
+                adImageList.add(adImage);
+            }
+            adInfo.setImages(adImageList);
         }
         return adInfos;
     }

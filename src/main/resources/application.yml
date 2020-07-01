@@ -24,3 +24,7 @@ logging:
 #    name: sqlgenerator.log
   level:
     root: INFO
+
+ad:
+  file:
+    filePath: D:/file

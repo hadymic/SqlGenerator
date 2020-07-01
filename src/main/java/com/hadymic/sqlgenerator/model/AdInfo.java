@@ -1,6 +1,5 @@
 package com.hadymic.sqlgenerator.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -27,7 +26,7 @@ public class AdInfo {
     @IsKey
     @IsAutoIncrement
     @Column
-    @TableId(type = IdType.AUTO)
+    @TableId
     private Integer id;
     @Column
     @TableField
@@ -47,10 +46,10 @@ public class AdInfo {
     @Column
     @TableField
     private String source;
-    @Column(type = MySqlTypeConstant.VARCHAR, length = 1020)
+    @Column(type = MySqlTypeConstant.VARCHAR, length = 2040)
     @TableField
     private String show_url_list;
-    @Column(type = MySqlTypeConstant.VARCHAR, length = 1020)
+    @Column(type = MySqlTypeConstant.VARCHAR, length = 2040)
     @TableField
     private String click_url_list;
     @Column
@@ -70,10 +69,16 @@ public class AdInfo {
     private String download_url;
     @Column
     @TableField
+    private String download_path;
+    @Column
+    @TableField
     private String icon_url;
     @Column
     @TableField
-    private List<String> image_url;
+    private String icon_path;
+    @Column
+    @TableField(exist = false)
+    private List<AdImage> images;
     @Column
     @TableField
     private String image_ids;
@@ -98,4 +103,7 @@ public class AdInfo {
     @Column
     @TableField
     private String video_url;
+    @Column
+    @TableField
+    private String video_path;
 }

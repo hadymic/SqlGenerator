@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hadymic.sqlgenerator.mapper.AdInfoMapper">
+
+    <resultMap id="adInfoMap" type="com.hadymic.sqlgenerator.model.AdInfo">
+        <id property="id" column="id"/>
+        <result property="ad_id" column="ad_id"/>
+        <result property="interaction_type" column="interaction_type"/>
+        <result property="creative_id" column="creative_id"/>
+        <result property="convert_id" column="convert_id"/>
+        <result property="target_url" column="target_url"/>
+        <result property="source" column="source"/>
+        <result property="show_url_list" column="show_url_list"/>
+        <result property="click_url_list" column="click_url_list"/>
+        <result property="title" column="title"/>
+        <result property="market_url" column="market_url"/>
+        <result property="app_name" column="app_name"/>
+        <result property="package_name" column="package_name"/>
+        <result property="download_url" column="download_url"/>
+        <result property="download_path" column="download_path"/>
+        <result property="icon_url" column="icon_url"/>
+        <result property="icon_path" column="icon_path"/>
+        <result property="image_ids" column="image_ids"/>
+        <result property="deeplink_url" column="deeplink_url"/>
+        <result property="fallback_url" column="fallback_url"/>
+        <result property="video_cover_url" column="video_cover_url"/>
+        <result property="endcard" column="endcard"/>
+        <result property="file_hash" column="file_hash"/>
+        <result property="video_duration" column="video_duration"/>
+        <result property="video_url" column="video_url"/>
+        <result property="video_path" column="video_path"/>
+    </resultMap>
+    <select id="selectAll" resultMap="adInfoMap">
+        select id,ad_id,interaction_type,creative_id,convert_id,target_url,source,show_url_list,click_url_list,title,market_url,app_name,package_name,download_url,download_path,icon_url,icon_path,image_ids,deeplink_url,fallback_url,video_cover_url,endcard,file_hash,video_duration,video_url,video_path
+        from ad_info
+    </select>
+</mapper>

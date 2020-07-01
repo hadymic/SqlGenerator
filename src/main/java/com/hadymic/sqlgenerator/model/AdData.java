@@ -97,12 +97,12 @@ public class AdData {
     private String image_ids;
     @TableField(exist = false)
     private List<String> show_url;
-    @Column(length = 1020)
+    @Column(length = 2040)
     @TableField
     private String show_url_list;
     @TableField(exist = false)
     private List<String> click_url;
-    @Column
+    @Column(length = 2040)
     @TableField
     private String click_url_list;
     @Column

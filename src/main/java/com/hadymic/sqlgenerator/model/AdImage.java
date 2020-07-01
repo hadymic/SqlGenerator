@@ -41,6 +41,9 @@ public class AdImage {
     private String url;
     @Column
     @TableField
+    private String path;
+    @Column
+    @TableField
     private Integer height;
     @Column
     @TableField
