@@ -3,10 +3,7 @@ package com.hadymic.sqlgenerator.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.hadymic.sqlgenerator.constant.FileType;
-import com.hadymic.sqlgenerator.mapper.AdDataMapper;
-import com.hadymic.sqlgenerator.mapper.AdDiffDataChildrenMapper;
-import com.hadymic.sqlgenerator.mapper.AdImageMapper;
-import com.hadymic.sqlgenerator.mapper.AdInfoMapper;
+import com.hadymic.sqlgenerator.mapper.*;
 import com.hadymic.sqlgenerator.model.*;
 import com.hadymic.sqlgenerator.service.IAdFilterWordService;
 import com.hadymic.sqlgenerator.service.IAdJson2SqlService;
@@ -25,6 +22,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class AdJson2SqlServiceImpl implements IAdJson2SqlService {
+    private static Logger logger = LoggerFactory.getLogger(AdJson2SqlServiceImpl.class);
 
     @Autowired
     private IAdFilterWordService adFilterWordService;
@@ -44,7 +42,11 @@ public class AdJson2SqlServiceImpl implements IAdJson2SqlService {
     @Autowired
     private AdInfoMapper adInfoMapper;
 
-    private static Logger logger = LoggerFactory.getLogger(AdJson2SqlServiceImpl.class);
+    @Autowired
+    private AdIconMapper adIconMapper;
+
+    @Autowired
+    private AdAppMapper adAppMapper;
 
     @Override
     public boolean saveAd(AdJsonRootBean root) {
@@ -116,17 +118,25 @@ public class AdJson2SqlServiceImpl implements IAdJson2SqlService {
                     data.setAdslot_id(data.getAdslot().getId());
                 }
                 //AdApp
-                if (data.getApp() != null && autoSave(data.getApp())) {
-                    data.setApp_id(data.getApp().getId());
+                if (data.getApp() != null) {
+                    AdApp app = data.getApp();
+                    //如果已经存过了
+                    if (adAppMapper.selectCount(new QueryWrapper<AdApp>().eq("download_url", app.getDownload_url())) > 0) {
+                        AdApp adApp = adAppMapper.selectOne(new QueryWrapper<AdApp>().eq("download_url", app.getDownload_url()));
+                        data.setApp_id(adApp.getId());
+                    } else {
+                        //保存Apk
+                        String downloadPath = FileUtils.saveApkFromInternet(app.getDownload_url(), app.getPackage_name(), data.getInteraction_type());
+                        adInfo.setDownload_path(downloadPath);
+                        if (autoSave(app)) {
+                            data.setApp_id(app.getId());
+                        }
+                    }
 
                     //adInfo
                     adInfo.setApp_name(data.getApp().getApp_name());
                     adInfo.setPackage_name(data.getApp().getPackage_name());
                     adInfo.setDownload_url(data.getApp().getDownload_url());
-
-                    //保存APK
-                    String downloadPath = FileUtils.saveFileFromInternet(data.getApp().getDownload_url(), FileType.FILE_TYPE_APK, data.getInteraction_type());
-                    adInfo.setDownload_path(downloadPath);
                 }
                 //AdClickArea
                 if (data.getClick_area() != null && autoSave(data.getClick_area())) {
@@ -167,15 +177,23 @@ public class AdJson2SqlServiceImpl implements IAdJson2SqlService {
                     data.setFilter_words_ids(filterWordsIds.toString());
                 }
                 //AdIcon
-                if (data.getIcon() != null && autoSave(data.getIcon())) {
-                    data.setIcon_id(data.getIcon().getId());
+                if (data.getIcon() != null) {
+                    AdIcon icon = data.getIcon();
+                    //如果已经存过了
+                    if (adIconMapper.selectCount(new QueryWrapper<AdIcon>().eq("url", icon.getUrl())) > 0) {
+                        AdIcon adIcon = adIconMapper.selectOne(new QueryWrapper<AdIcon>().eq("url", icon.getUrl()));
+                        data.setIcon_id(adIcon.getId());
+                    } else {
+                        //保存Icon文件
+                        String iconPath = FileUtils.saveFileFromInternet(icon.getUrl(), FileType.FILE_TYPE_ICON, data.getInteraction_type());
+                        adInfo.setIcon_path(iconPath);
+                        if (autoSave(icon)) {
+                            data.setIcon_id(icon.getId());
+                        }
+                    }
 
                     //adInfo
                     adInfo.setIcon_url(data.getIcon().getUrl());
-
-                    //保存Icon文件
-                    String iconPath = FileUtils.saveFileFromInternet(data.getIcon().getUrl(), FileType.FILE_TYPE_ICON, data.getInteraction_type());
-                    adInfo.setIcon_path(iconPath);
                 }
                 //AdImage
                 if (data.getImage() != null) {

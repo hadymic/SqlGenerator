@@ -35,7 +35,7 @@ public class FileDownloadTest {
 //        String url = "https://s.toutiao.com/o7cEL/";
 //        String url = "http://static-apk.supamob.com.cn/filemagic/212477.apk";
         String url = "http://s.huoshanzhibo.com/onHe6/";
-        FileUtils.saveFileFromInternet(url, FileType.FILE_TYPE_APK, InteractionType.INTERACTION_TYPE_LANDING_PAGE.getType());
+        FileUtils.saveApkFromInternet(url, "com.huoshan.zhibo", InteractionType.INTERACTION_TYPE_LANDING_PAGE.getType());
     }
 
     @Test

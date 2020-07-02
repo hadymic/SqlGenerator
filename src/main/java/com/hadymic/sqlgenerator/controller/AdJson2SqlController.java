@@ -1,6 +1,5 @@
 package com.hadymic.sqlgenerator.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hadymic.sqlgenerator.mapper.AdImageMapper;
 import com.hadymic.sqlgenerator.mapper.AdInfoMapper;
 import com.hadymic.sqlgenerator.mapper.AdJsonRootBeanMapper;

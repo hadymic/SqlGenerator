@@ -3,6 +3,7 @@ package com.hadymic.sqlgenerator.utils;
 import com.hadymic.sqlgenerator.config.FileConfig;
 import com.hadymic.sqlgenerator.constant.FileType;
 import com.hadymic.sqlgenerator.constant.InteractionType;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -47,14 +48,45 @@ public class FileUtils {
     }
 
     public static String saveFileFromInternet(String url, FileType fileType, Integer interactionType) {
+        String filePath = getFileParentPath(fileType, interactionType, null) + "/" + getFileName(url, fileType);
+        logger.info("save file: url: " + url + " filePath: " + filePath);
+        try {
+            fetchContent(url, filePath);
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return "";
+        }
+        return filePath;
+    }
 
+    public static String saveApkFromInternet(String url, String packageName, Integer interactionType) {
+        String filePath = getFileParentPath(FileType.FILE_TYPE_APK, interactionType, packageName) + "/" + getFileName(url, FileType.FILE_TYPE_APK);
+        logger.info("save file: url: " + url + " filePath: " + filePath);
+        try {
+            fetchContent(url, filePath);
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return "";
+        }
+        return filePath;
+    }
+
+    private static String getFileParentPath(FileType fileType, Integer interactionType, String packageName) {
         String path = fileType.getPath() + "/" + InteractionType.getPath(interactionType);
+        if (fileType == FileType.FILE_TYPE_APK && !StringUtils.isBlank(packageName)) {
+            path = path + "/" + packageName;
+        }
+        String parentPath = fileConfig.getFilePath() + "/" + path;
         //创建文件夹
-        File file = new File(fileConfig.getFilePath() + "/" + path);
+        File file = new File(parentPath);
         if (!file.exists()) {
             file.mkdirs();
         }
-        //以最后一个/后的内容作为文件名
+        return parentPath;
+    }
+
+    //以最后一个/后的内容作为文件名
+    private static String getFileName(String url, FileType fileType) {
         String[] split = url.split("/");
         String fileName;
         if ("".equals(split[split.length - 1])) {
@@ -62,26 +94,24 @@ public class FileUtils {
         } else {
             fileName = split[split.length - 1];
         }
-        String filePath = path + "/" + fileName;
+
         //添加文件后缀
-        if (fileType == FileType.FILE_TYPE_IMAGE && !filePath.endsWith(".webp")) {
-            filePath += ".webp";
+        if (fileType == FileType.FILE_TYPE_IMAGE && !fileName.endsWith(".webp")) {
+            fileName += ".webp";
         }
-        if (fileType == FileType.FILE_TYPE_ICON && !filePath.endsWith(".image")) {
-            filePath += ".image";
+        if (fileType == FileType.FILE_TYPE_ICON && !(fileName.endsWith(".image") || fileName.endsWith(".jpeg"))) {
+            fileName += ".jpeg";
         }
-        if (fileType == FileType.FILE_TYPE_APK && !filePath.endsWith(".apk")) {
-            filePath = filePath.replaceAll("\\?", "");
-            filePath += ".apk";
+        if (fileType == FileType.FILE_TYPE_APK && !fileName.endsWith(".apk")) {
+            fileName = fileName.replaceAll("\\?", "");
+            fileName += ".apk";
         }
-        logger.info("save file: url: " + url + " filePath: " + fileConfig.getFilePath() + "/" + filePath);
-        try {
-            fetchContent(url, fileConfig.getFilePath() + "/" + filePath);
-        } catch (IOException e) {
-            logger.error(e.getMessage());
-            return "";
-        }
-        return filePath;
+
+        //给文件名附上时间戳，防止重名
+        int index = fileName.lastIndexOf(".");
+        fileName = fileName.substring(0, index) + "_" + System.currentTimeMillis() + fileName.substring(index);
+
+        return fileName;
     }
 
     public static void initApacheHttpClient() {
@@ -109,9 +139,8 @@ public class FileUtils {
         httpget.setHeader("Referer", "http://www.google.com");
 
         logger.info("executing request " + httpget.getURI());
-        CloseableHttpResponse response = httpclient.execute(httpget);
 
-        try {
+        try (CloseableHttpResponse response = httpclient.execute(httpget)) {
             HttpEntity entity = response.getEntity();
 
             if (response.getStatusLine().getStatusCode() >= 400) {
@@ -124,8 +153,6 @@ public class FileUtils {
                 IOUtils.copy(input, output);
                 output.flush();
             }
-        } finally {
-            response.close();
         }
     }
 }

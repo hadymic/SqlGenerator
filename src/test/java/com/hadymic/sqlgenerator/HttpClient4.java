@@ -149,7 +149,7 @@ public class HttpClient4 {
 
     @Test
     public void testAd() {
-        String filePath = "D:\\log-20200617.log";
+        String filePath = "D:\\log-20200630.log";
         String url = "http://localhost:8080/ad/save";
         read2Buffer(filePath, url);
     }
